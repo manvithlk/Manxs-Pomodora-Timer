@@ -75,7 +75,7 @@ src/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/pomodoro-dashboard.git
+git clone https://github.com/manvithlk/Manxs-Pomodoro-Timer.git
 cd pomodoro-dashboard
 ```
 
