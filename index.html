@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Manx's Pomodoro Timer — A beautiful focus timer to boost your productivity with customizable work and break sessions." />
+    <title>Manx's Pomo Timer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      /* Preloader — rendered before React boots */
+      #preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        background: #0f0f0f;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s;
+      }
+
+      #preloader.fade-out {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .preloader-dot-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .preloader-dot {
+        width: 12px;
+        height: 12px;
+        background: #fff;
+        animation: preloaderPulse 1.4s infinite ease-in-out;
+      }
+
+      .preloader-dot:nth-child(2) {
+        animation-delay: 0.2s;
+        opacity: 0.7;
+      }
+
+      .preloader-dot:nth-child(3) {
+        animation-delay: 0.4s;
+        opacity: 0.5;
+      }
+
+      @keyframes preloaderPulse {
+        0%, 80%, 100% {
+          transform: scale(0.6);
+          opacity: 0.3;
+        }
+        40% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .preloader-text {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      .preloader-brand {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 1.1rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.5) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Preloader (visible before React mounts) -->
+    <div id="preloader">
+      <div class="preloader-brand">
+        <span style="width:10px;height:10px;background:#fff;display:inline-block;box-shadow:0 0 15px rgba(255,255,255,0.8);animation:preloaderPulse 2.5s infinite ease-in-out;"></span>
+        Manx's Pomo Timer
+      </div>
+      <div class="preloader-dot-container">
+        <div class="preloader-dot"></div>
+        <div class="preloader-dot"></div>
+        <div class="preloader-dot"></div>
+      </div>
+      <div class="preloader-text">Loading</div>
+    </div>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
